@@ -1,43 +1,37 @@
 <template>
-  <div id="app">
-    <h1>在线翻译</h1>
-    <h5 class="text-muted">简单 / 易用 / 便捷</h5>
-    <in v-on:aa="translateText"></in>
-    <translateOutput v-bind:aa="translatedText"></translateOutput>
-    <TagsInput v-bind:source="source"></TagsInput>
-  </div>
+<div id="app">
+  <h1>Hello App!</h1>
+  <p>
+    <router-link to="/translate">Translate</router-link>
+    <router-link to="/tags">Tags</router-link>
+  </p>
+  <router-view></router-view>
+</div>
 </template>
 
 <script>
 
-import TranslateForm from './components/TranslateForm'
-import bb from './components/TranslateOutput'
-import TagsInput from "./components/TagsInput.vue";
+import Translate from './route/translate'
+import Tags from "./route/tags.vue";
 
 export default {
   name: 'app',
   data:function(){
     return{
-      translatedText:"",
-      a:"dyx",
-      source: ["Vue", "Mpvue", "Css"]
     }
   },
   components: {
-    In:TranslateForm,
-    TranslateOutput:bb,
-    TagsInput,
+    Tags,
+    Translate
   },
   methods:{
-    translateText:function(text,language){
-            this.translatedText = text+language;
-    }
+
   }
 }
 </script>
 
 <style>
-#app {
+  #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
