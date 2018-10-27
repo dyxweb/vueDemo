@@ -4,6 +4,7 @@
   <p>
     <router-link to="/translate">Translate</router-link>
     <router-link to="/tags">Tags</router-link>
+    <router-link to="/vuex">vuex</router-link>
     <router-link to="/user/123">User123</router-link>
     <router-link to="/user/456">User456</router-link>
   </p>

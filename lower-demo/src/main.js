@@ -3,6 +3,7 @@ import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import App from './App'
 import router from './route/router.js'
+import store from './vuex/store.js'
 
 Vue.use(VueResource)
 Vue.config.productionTip = false
@@ -13,5 +14,5 @@ new Vue({
   template: '<App/>',
   components: { App },
   router,
-  mode:'history'
+  store,
 })

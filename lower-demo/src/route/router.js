@@ -5,6 +5,7 @@ import Translate from './translate'
 import B from './b'
 import User from './user'
 import Tags from './tags'
+import Vuex from './vuex'
 
 Vue.use(VueRouter)
 
@@ -17,12 +18,14 @@ const routes = [
      ],
      meta: {title: 'tags'}  
   },
+  { path: '/vuex', component: Vuex},
   { path:"/user/:id", component: User },
   {path: '*',  redirect: '/translate'} //路由重定向
 ]
 
 const router = new VueRouter({
-	routes
+  routes,
+  mode:'history' //history无#号，hash有井号
 })
 
 router.beforeEach((to, from, next) => {
