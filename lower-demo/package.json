@@ -1,8 +1,6 @@
 {
   "name": "my-project",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "Hemiah <309595700@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
