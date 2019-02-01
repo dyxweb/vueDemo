@@ -1,6 +1,7 @@
 <template>
 <div id="app">
   <h1>vue Demo</h1>
+  <router-view class='aa'></router-view>
   <p>
     <router-link to="/translate">Translate</router-link>
     <router-link to="/tags">Tags</router-link>
@@ -10,7 +11,6 @@
     <router-link to="/user/456">User456</router-link>
     <router-link to="/addtodo">addtodo</router-link>
   </p>
-  <router-view class='aa'></router-view>
 </div>
 </template>
 

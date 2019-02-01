@@ -1,6 +1,6 @@
 <template>
-<div id="app">
-  <el-card class="container">
+<div>
+  <el-card>
     <el-input class="input" @keyup.enter.native="addTodo" v-model.trim="text"></el-input>
     <ul class="todo_list">
       <transition-group name="fade">
@@ -127,13 +127,6 @@ export default {
 </script>
 
 <style scoped>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
 .fade-enter, .fade-leave-to {
   opacity: 0;
@@ -143,13 +136,6 @@ export default {
   transition: opacity .3s;
 }
 
-.container {
-  margin-top: 200px;
-  margin-left: 100px;
-  padding-left: 20px;
-  width: 400px;
-}
-
 .input {
   width: 300px;
 }
@@ -157,7 +143,7 @@ export default {
 .todo {
   padding: 10px;
   cursor: pointer;
-  text-align: left;
+  list-style:none;
 }
 
 .delete_btn {

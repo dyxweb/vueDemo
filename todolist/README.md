@@ -1,6 +1,6 @@
 # curd-demo
 
-> vue 的CURD包含router、vuex
+> todolist vuex demo
 
 ## Build Setup
 
