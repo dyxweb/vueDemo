@@ -8,6 +8,7 @@ export default{
     },
     mutations:{
         addTodo(state,params){
+            // 获取目前最大的key值然后加1
             const id = state.todolist.reduce((maxId, todo) => Math.max(maxId, todo.key), -1) + 1;
             state.todolist=[...state.todolist,{data: params, key: id, complete: false}]
         },

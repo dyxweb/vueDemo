@@ -1,37 +1,38 @@
   <template>
     <div>
-      <el-input @keyup.enter.native="addTodo" v-model.trim="input" placeholder="请输入要添加事项"></el-input>
-      <el-button @click="addTodo">添加</el-button>
-      <div :class="{complete_todo: value.complete}" v-for="(value, key) in todoListComputed" :key="value.key">
-        <span @click="toggleTodo(value)">{{value.key}}:{{value.data}}</span>
-        <el-button @click="deleTodo(key)" type="text">删除</el-button>
-      </div>
-      <el-button @click="updateStatus('all')"> 全部 {{todolist.length}}</el-button>
-      <el-button @click="updateStatus('complete')"> 已完成 {{todoCompletedNum}}</el-button>
-      <el-button @click="updateStatus('todo')"> 未完成 {{todolist.length - todoCompletedNum}}</el-button>
+      <add-input v-on:addTodo="addTodo" />
+      <list v-on:deleTodo="deleTodo"  v-on:toggleTodo="toggleTodo" v-bind:data="todoListComputed" />
+      <footer-status v-on:updateStatus="updateStatus"  v-bind:length="todolist.length" v-bind:completeNum="todoCompletedNum" />
     </div>
   </template>
-
   <script>
     import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'    
+    import AddInput from '../components/addinput.vue'
+    import list from '../components/list.vue'
+    import FooterStatus from '../components/footer.vue'
+
     export default {
       name: 'todolist',
       data() {
         return {
-            input: ''
         }
       },
+      components: {
+        AddInput,
+        list,
+        FooterStatus
+      },
       methods: {
+          // 映射 Mutations，不要与methods同名
           ...mapMutations({
               addList: 'addTodo',
               toggleList: 'toggleTodo',
               deleList: 'deleTodo',
               updateStatus: 'updateStatus'
           }),
-          addTodo(){
-              if(this.input){
-                  this.addList(this.input)
-                  this.input=''
+          addTodo(data){
+              if(data){
+                  this.addList(data)
               }
           },
           toggleTodo(todo){
@@ -42,11 +43,13 @@
           },
       },
       computed:{
+          // 映射state
           ...mapState({
               todolist: state => state.todolist,
               status: state => state.status,
           }),
           todoListComputed () {
+            // 计算要展示的list数据
             const {
                 status,
                 todolist
@@ -63,10 +66,4 @@
     }
   </script>
   <style>
-    .complete_todo{
-        text-decoration: line-through;
-    }
-    .el-input{
-        width:20%;
-    }
   </style>

@@ -1,28 +1,29 @@
   <template>
     <div>
-      <el-button @click="toAdd()">添加用户</el-button>
+      <el-button @click="toAdd()">添加详情</el-button>
         <el-table
-        :data="userList"
+        :data="[]"
         stripe
         style="width: 100%">
         <el-table-column
-            prop="date"
-            label="日期"
+            prop="fee"
+            label="fee"
             width="180">
         </el-table-column>
         <el-table-column
-            prop="name"
-            label="姓名"
+            prop="tiem"
+            label="时间"
             width="180">
         </el-table-column>
         <el-table-column
-            prop="address"
-            label="地址">
+            prop="detail"
+            label="详情">
         </el-table-column>
         <el-table-column
             label="操作">
             <template slot-scope="scope">
-                <el-button type="text" size="small" @click="toDetail(scope.row)">详情</el-button>
+                <el-button type="text" size="small">删除</el-button>
+                <el-button type="text" size="small">编辑</el-button>
             </template>
         </el-table-column>
     </el-table>
@@ -31,9 +32,9 @@
   </template>
 
   <script>
-    import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'    
+    import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
     export default {
-      name: 'User',
+      name: 'user',
       data() {
         return {
         }
@@ -43,18 +44,15 @@
       },
       methods: {
           ...mapActions({
-              getList: 'getUserList'
+              getList: 'getDetailList'
           }),
           toAdd(){
-              this.$router.push("user/add")
-          },
-          toDetail(row){
-              this.$router.push(`user/${row.id}/detail`)
+              this.$router.push(`${this.$router.history.current.path}/add`)
           }
       },
       computed:{
           ...mapState({
-              userList: state => state.user.userList
+              userList: state => state.detail.detailList
           })
       }
     }
