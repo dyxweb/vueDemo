@@ -33,7 +33,7 @@ const login = {
         });  
   		  resolve(response);
         }).catch(error => {
-          reject(error);
+          console.log(error);
         });
   	},
   	logout({ commit }) {
@@ -46,7 +46,7 @@ const login = {
         sessionStorage.removeItem('ROLE');
         resolve();
       }).catch(error => {
-        reject(error);
+        console.log(error);
       });
     },
     changeRole({ commit }, role ) {
