@@ -61,9 +61,11 @@
         });
       },
       changeRole(role){
-        this.$store.dispatch('changeRole', role);
-        // 切换角色之后重新进入该路由判断是否有权限
-        this.$router.push({ path: $route.path });
+        this.$store.dispatch('changeRole', role).then(() => {
+          // 切换角色之后重新进入该路由判断是否有权限，强制刷新
+          this.$router.go(0)
+        })
+        
       },
     },
     computed: {
