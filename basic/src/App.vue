@@ -5,6 +5,7 @@
     <button @click="pushPath('/watch')">watch</button>
     <button @click="pushPath('/nexttick')">nextTick</button>
     <button @click="pushPath('/ref')">ref</button>
+    <button @click="pushPath('/slot')">slot</button>
     <hr />
     <router-view/>
   </div>

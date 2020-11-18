@@ -7,6 +7,10 @@ import NextTickDemo from './NextTickDemo';
 import RefDemo from './RefDemo/RefDemo.vue';
 import RefDomDemo from './RefDemo/DomDemo.vue';
 import RefGetChildrenDemo from './RefDemo/GetChildrenComDemo/Parent.vue';
+import SlotDemo from './SlotDemo/SlotDemo.vue';
+import SlotSimpleDemo from './SlotDemo/Simple/Parent.vue';
+import SlotDefaultValueDemo from './SlotDemo/DefaultValue/Parent.vue';
+import SlotHasNameDemo from './SlotDemo/HasName/Parent.vue';
 
 Vue.use(Router);
 // 解决相同路由下跳转的报错
@@ -45,6 +49,17 @@ export default new Router({
         { path: '/ref/dom', name: 'RefDomDemo', component: RefDomDemo },
         { path: '/ref/getChildren', name: 'RefGetChildrenDemo', component: RefGetChildrenDemo },
         {path: '/ref',  redirect: '/ref/dom'}
+      ]
+    },
+    {
+      path: '/slot',
+      name: 'SlotDemo',
+      component: SlotDemo,
+      children: [
+        { path: '/slot/simple', name: 'SlotSimpleDemo', component: SlotSimpleDemo },
+        { path: '/slot/defaultValue', name: 'SlotDefaultValueDemo', component: SlotDefaultValueDemo },
+        { path: '/slot/hasName', name: 'SlotHasNameDemo', component: SlotHasNameDemo },
+        {path: '/slot',  redirect: '/slot/simple'}
       ]
     },
     {path: '/',  redirect: '/method'}
