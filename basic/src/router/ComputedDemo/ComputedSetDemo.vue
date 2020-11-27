@@ -1,9 +1,10 @@
+<!--有set的使用 -->
 <template>
   <div>
     <div style="font-size: 24px">{{num}}</div>
     <div @click="addNum">add</div>
     <div style="font-size: 24px">{{num1}}</div>
-    <div @click="addNum1">add1</div>
+    <div @click="setComputed">setComputed</div>
     <div>
       {{renderSomeThing}}
     </div>
@@ -11,7 +12,7 @@
 </template>
 <script>
 export default {
-  name: 'ComputedDemo',
+  name: 'ComputedGetDemo',
   data() {
     return {
       num: 0,
@@ -22,18 +23,23 @@ export default {
     addNum() {
       this.num += 1;
     },
-    addNum1() {
-      this.num1 += 1;
+    setComputed() {
+      this.renderSomeThing = this.num + 20;
     },
   },
   computed: {
-    renderSomeThing() {
-      // 只有第一次或者this.num改变才会重新触发
-      return this.num + 1;
+    renderSomeThing: {
+      get() {
+        return this.num + this.num1 + 1;
+      },
+      // 当修改对应computed的值时才会触发set
+      set(value) {
+        console.log(value, 'set');
+        this.num1 = value;
+      }
     }
   }
 }
 </script>
-<style scoped>
-
+<style>
 </style>

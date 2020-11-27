@@ -2,7 +2,7 @@
   <div>
     <div style="font-size: 24px">{{num}}</div>
     <div @click="changeNum">change to 2</div>
-    <div @click="changeNumToAny(5)">change to 5</div>
+    <div @click="changeNumToAny(5, $event)">change to 5</div>
     <div @click="() => changeNumToAny(10)">change to 10</div>
     <div style="font-size: 24px">{{num1}}</div>
     <div @click="changeNum1">num1</div>
@@ -21,11 +21,15 @@ export default {
     }
   },
   methods: {
-    changeNum() {
+    changeNum(e) {
+      // 如果只有事件对象一个参数，调用时不用显示传递
+      console.log(e.target);
       this.num = 2;
     },
 
-    changeNumToAny(newNum) {
+    changeNumToAny(newNum, e) {
+      // 如果有多个参数，将事件对象的参数放在其它参数后
+      console.log(newNum, e.target);
       this.num = newNum;
       // 改变后最新的值
       console.log(this.num);
@@ -42,6 +46,5 @@ export default {
   }
 }
 </script>
-<style scoped>
-
+<style>
 </style>

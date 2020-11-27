@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import MethodDemo from './MethodDemo';
-import ComputedDemo from './ComputedDemo';
+import ComputedDemo from './ComputedDemo/ComputedDemo.vue';
+import ComputedGetDemo from './ComputedDemo/ComputedGetDemo.vue';
+import ComputedSetDemo from './ComputedDemo/ComputedSetDemo.vue';
 import WatchDemo from './WatchDemo';
 import PropsDemo from './PropsDemo/PropsDemo.vue';
 import ParentToChildPropsDemo from './PropsDemo/ParentToChild/Parent.vue';
@@ -40,7 +42,12 @@ export default new Router({
     {
       path: '/computed',
       name: 'ComputedDemo',
-      component: ComputedDemo
+      component: ComputedDemo,
+      children: [
+        { path: '/computed/get', name: 'ComputedGetDemo', component: ComputedGetDemo },
+        { path: '/computed/set', name: 'ComputedSetDemo', component: ComputedSetDemo },
+        {path: '/computed',  redirect: '/computed/get'}
+      ]
     },
     {
       path: '/watch',
