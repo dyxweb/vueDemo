@@ -24,6 +24,7 @@ import SwitchComAliveDemo from './SwitchComDemo/AliveDemo/AliveDemo.vue';
 import SyncDemo from './SyncDemo/SyncDemo.vue';
 import NoSyncDemo from './SyncDemo/NoSync/Parent.vue';
 import UseSyncDemo from './SyncDemo/UseSync/Parent.vue';
+import modelComDemo from './ModelCom/Parent.vue';
 
 Vue.use(Router);
 // 解决相同路由下跳转的报错
@@ -111,6 +112,11 @@ export default new Router({
         { path: '/sync/use', name: 'UseSyncDemo', component: UseSyncDemo },
         {path: '/sync',  redirect: '/sync/no'}
       ]
+    },
+    {
+      path: '/modelCom',
+      name: 'modelComDemo',
+      component: modelComDemo,
     },
     {path: '/',  redirect: '/method'}
   ],

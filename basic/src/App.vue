@@ -9,6 +9,7 @@
     <button @click="pushPath('/slot')">slot</button>
     <button @click="pushPath('/switch')">switch component</button>
     <button @click="pushPath('/sync')">sync 子组件修改父组件的数据</button>
+    <button @click="pushPath('/modelCom')">自定义组件使用v-model</button>
     <hr />
     <router-view/>
   </div>
