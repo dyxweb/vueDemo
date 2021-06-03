@@ -10,6 +10,7 @@
     <button @click="pushPath('/switch')">switch component</button>
     <button @click="pushPath('/sync')">sync 子组件修改父组件的数据</button>
     <button @click="pushPath('/modelCom')">自定义组件使用v-model</button>
+    <button @click="pushPath('/lifecycleCom')">生命周期</button>
     <hr />
     <router-view/>
   </div>

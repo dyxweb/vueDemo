@@ -13,6 +13,12 @@ export default {
       num: 1,
     }
   },
+  activated() {
+    console.log('activated1')
+  },
+  deactivated() {
+    console.log('deactivated1')
+  },
   methods: {
     addNum() {
       this.num += 1;

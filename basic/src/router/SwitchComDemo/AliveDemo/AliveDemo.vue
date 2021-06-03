@@ -25,8 +25,8 @@ export default {
     }
   },
   components: {
-    DemoOne, 
-    DemoTwo, 
+    DemoOne,
+    DemoTwo,
   },
 }
 </script>
